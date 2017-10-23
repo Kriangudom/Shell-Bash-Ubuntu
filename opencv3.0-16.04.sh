@@ -1,7 +1,8 @@
 #python2.7-opencv3.0
+VERSION=3.0.0
 # 1. INSTALL THE DEPENDENCIES
 
-sudo apt-get update  -y
+sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y build-essential cmake pkg-config
 sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
@@ -15,9 +16,9 @@ sudo apt-get install -y python2.7-dev
 
 mkdir opencv3.0
 cd opencv
-wget -O opencv3.0.0.zip https://github.com/Itseez/opencv/archive/3.0.0.zip
-unzip opencv3.0.0.zip
-cd opencv3.0.0
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/${VERSION}.zip
+unzip opencv.zip
+cd opencv-${VERSION}/
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -33,7 +34,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 # For more information check: http://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/
 
 make -j4
-make install
+sudo make install
 sudo ldconfig
 
 
